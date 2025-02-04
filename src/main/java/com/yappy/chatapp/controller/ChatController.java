@@ -11,13 +11,13 @@ import com.yappy.chatapp.model.ChatMessage;
 @Controller
 public class ChatController {
     @MessageMapping("/chat.sendMessage")
-    @SendTo("topic/public")
+    @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
         return chatMessage;
     }
 
     @MessageMapping("/chat.addUser")
-    @SendTo("topic/public")
+    @SendTo("/topic/public")
     public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         chatMessage.setContent(chatMessage.getSender() + " joined the chat");
@@ -26,7 +26,7 @@ public class ChatController {
     }
 
     @MessageMapping("/chat.removeUser")
-    @SendTo("topic/public")
+    @SendTo("/topic/public")
     public ChatMessage removeUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
         chatMessage.setContent(chatMessage.getSender() + " left the chat");
         chatMessage.setType(ChatMessage.MessageType.LEAVE);
