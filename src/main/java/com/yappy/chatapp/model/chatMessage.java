@@ -1,16 +1,14 @@
 package com.yappy.chatapp.model;
 
-import org.apache.logging.log4j.message.Message;
-
-public class chatMessage {
+public class ChatMessage {
     private String sender;
-    private String message;
+    private String content;
     private MessageType type;
 
-    public enum MessageType{
+    public enum MessageType {
         CHAT, JOIN, LEAVE
     }
-
+    
     // getters and setters for the chatMessage object
     public String getSender() {
         return sender;
@@ -19,17 +17,17 @@ public class chatMessage {
         this.sender = sender;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContent() {
+        return content;
     }
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public MessageType getMessageType() {
+    public MessageType getType() {
         return type;
     }
-    public void setMessageType(MessageType type) {
+    public void setType(MessageType type) {
         this.type = type;
     }
 
