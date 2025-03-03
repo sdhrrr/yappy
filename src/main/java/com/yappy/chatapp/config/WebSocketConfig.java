@@ -13,12 +13,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-            .setAllowedOrigins(
-                "http://localhost:5173",      // Local development
-                "http://192.168.137.1:5173",  // Your IP address
-                "http://127.0.0.1:5173"       // Alternative localhost
-            )
-            .withSockJS();
+                // allowing CORS 
+                .setAllowedOrigins(
+                    "http://localhost:5173",     // Local development
+                    "https://curb-chat.vercel.app"        // Vercel deployment 
+                )
+                .withSockJS();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.setApplicationDestinationPrefixes("/app");
         registry.enableSimpleBroker("/topic");
         
-        // Optional: Set heartbeat intervals
         registry.setPreservePublishOrder(true);
+        registry.setUserDestinationPrefix("/user");
     }
 }
