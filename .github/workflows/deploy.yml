@@ -4,7 +4,7 @@ name: Deploy to Azure
 on:
   push:
     branches:
-      - master    # Triggers when you push to main branch
+      - master   
 
 jobs:
   build-and-deploy:
