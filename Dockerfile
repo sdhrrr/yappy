@@ -3,18 +3,18 @@
 FROM eclipse-temurin:21-jdk-jammy AS builder
 WORKDIR /app
 
-# Copy only pom.xml and mvnw files first
+# Copying only pom.xml and mvnw files first
 COPY pom.xml ./
 COPY mvnw ./
 COPY .mvn .mvn/
 
-# Make mvnw executable
+# Making mvnw executable
 RUN chmod +x mvnw
 
-# Copy source code
+# Copying source code
 COPY src ./src
 
-# Build without tests
+# Building without tests
 RUN ./mvnw clean package -DskipTests
 
 # Run stage: this is the final container where i copy the jar file from builder container
