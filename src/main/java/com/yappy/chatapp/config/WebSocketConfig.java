@@ -15,8 +15,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/ws")
                 // allowing CORS 
                 .setAllowedOrigins(
-                    "http://localhost:5173",     // Local development
-                    "https://curb-chat.vercel.app"        // Vercel deployment 
+                    "http://localhost:5173",     // Local development ip address
+                    "https://curb-chat.vercel.app"        // Vercel deployment ip address
                 )
                 .withSockJS();
     }
