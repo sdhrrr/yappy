@@ -18,7 +18,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                     "http://localhost:5173",     // Local development ip address
                     "https://curb-chat.vercel.app"        // Vercel deployment ip address
                 )
-                .withSockJS();
+                .withSockJS(); // we use sockjs for the communication
     }
 
     @Override
