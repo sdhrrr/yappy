@@ -45,5 +45,5 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'your-app-name'
+        app-name: 'curbchatapi'
         images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/chatapp:${{ github.sha }}
