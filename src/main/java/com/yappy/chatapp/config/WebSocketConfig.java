@@ -28,5 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         
         registry.setPreservePublishOrder(true);
         registry.setUserDestinationPrefix("/user");
+
+        // endpoints for the connections
     }
 }
